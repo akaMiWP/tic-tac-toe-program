@@ -1,0 +1,12 @@
+services:
+  tic_tac_toe:
+    build:
+      context: .
+    volumes:
+      - .:/workdir # Mount your project directory
+      - ./solana-config:/root/.config/solana # Redirect Solana config to a subfolder in your project
+    ports:
+      - "8899:8899" # Solana test validator port
+      - "9900:9900" # WebSocket port for Solana
+    stdin_open: true
+    tty: true
